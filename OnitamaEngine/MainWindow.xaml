@@ -1,0 +1,28 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnitamaEngine"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="OnitamaEngine.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="555.544" Width="493.851">
+    <Grid Margin="0,0,-41,9">
+        <Label x:Name="statusLabel" Content="" HorizontalAlignment="Center" Height="26" Margin="23,5,161,0" VerticalAlignment="Top" Width="297" FontWeight="Bold"/>
+        <ListBox x:Name="cardListBox" HorizontalAlignment="Center" Height="337" Margin="35,36,87,0" VerticalAlignment="Top" Width="405" BorderThickness="10,11,10,5" SelectionMode="Multiple" SelectionChanged="cardListBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.Effect>
+                <DropShadowEffect/>
+            </ListBox.Effect>
+        </ListBox>
+        <ListBox x:Name="redCardListBox" HorizontalAlignment="Left" Height="82" Margin="23,415,0,0" VerticalAlignment="Top" Width="119" BorderBrush="#FFE02121"/>
+        <Label Content="Red Cards" HorizontalAlignment="Left" Height="30" Margin="23,385,0,0" VerticalAlignment="Top" Width="119" HorizontalContentAlignment="Center" Foreground="#FFE02121"/>
+        <ListBox x:Name="blueCardListBox" HorizontalAlignment="Left" Height="82" Margin="165,415,0,0" VerticalAlignment="Top" Width="119" BorderBrush="#FF148ADC"/>
+        <Label Content="Blue Cards" HorizontalAlignment="Left" Height="30" Margin="165,385,0,0" VerticalAlignment="Top" Width="119" HorizontalContentAlignment="Center" Foreground="#FF148ADC"/>
+        <ListBox x:Name="passCardListBox" HorizontalAlignment="Left" Height="36" Margin="309,415,0,0" VerticalAlignment="Top" Width="119"/>
+        <Label Content="Pass Card" HorizontalAlignment="Left" Height="30" Margin="309,385,0,0" VerticalAlignment="Top" Width="119" HorizontalContentAlignment="Center" Foreground="#FF85898B"/>
+        <Button x:Name="resetButton" Content="Reset" HorizontalAlignment="Left" Height="18" Margin="309,479,0,0" VerticalAlignment="Top" Width="119" VerticalContentAlignment="Center" Padding="1,-2,1,1" ClickMode="Press" BorderBrush="#FF707070" Click="ResetButton_Click"/>
+        <Button x:Name="startButton" Content="Start Game" HorizontalAlignment="Left" Height="18" Margin="309,456,0,0" VerticalAlignment="Top" Width="119" Padding="1,-2,1,1" IsEnabled="False" Click="startButton_Click"/>
+        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="353,11,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="submitButton_Click"/>
+
+    </Grid>
+</Window>

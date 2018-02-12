@@ -1,0 +1,17 @@
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine.csprojResolveAssemblyReference.cache
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\MainWindow.g.cs
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\App.g.cs
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine_MarkupCompile.cache
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine_MarkupCompile.lref
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\bin\Debug\OnitamaEngine.exe.config
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\bin\Debug\OnitamaEngine.exe
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\bin\Debug\OnitamaEngine.pdb
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\MainWindow.baml
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine.g.resources
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine.Properties.Resources.resources
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine.csproj.GenerateResource.Cache
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine.csproj.CoreCompileInputs.cache
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine.exe
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\OnitamaEngine.pdb
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\BoardWindow.g.cs
+C:\Users\Devin\source\repos\OnitamaEngine\OnitamaEngine\obj\Debug\BoardWindow.baml
