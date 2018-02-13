@@ -42,9 +42,9 @@
         <Label Content="Red Cards" HorizontalAlignment="Left" Margin="298,485,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold"/>
         <Label Content="Pass Card" HorizontalAlignment="Left" Margin="508,200,0,0" VerticalAlignment="Top" Foreground="#FFBBB8B8" FontWeight="Bold"/>
         <ListBox x:Name="RedCard1" HorizontalAlignment="Left" Height="23" Margin="208,444,0,0" VerticalAlignment="Top" Width="120" GotFocus="CardSelected"/>
-        <ListBox x:Name="RedCard2" HorizontalAlignment="Left" Height="23" Margin="338,444,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="BlueCard1" HorizontalAlignment="Left" Height="23" Margin="208,83,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="BlueCard2" HorizontalAlignment="Left" Height="23" Margin="338,83,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="RedCard2" HorizontalAlignment="Left" Height="23" Margin="338,444,0,0" VerticalAlignment="Top" Width="120" GotFocus="CardSelected"/>
+        <ListBox x:Name="BlueCard1" HorizontalAlignment="Left" Height="23" Margin="208,83,0,0" VerticalAlignment="Top" Width="120" GotFocus="CardSelected"/>
+        <ListBox x:Name="BlueCard2" HorizontalAlignment="Left" Height="23" Margin="338,83,0,0" VerticalAlignment="Top" Width="120" GotFocus="CardSelected"/>
         <ListBox x:Name="PassCard" HorizontalAlignment="Left" Height="23" Margin="480,231,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>

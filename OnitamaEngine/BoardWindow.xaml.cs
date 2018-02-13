@@ -23,6 +23,7 @@ namespace OnitamaEngine
         List<Pawn> redPawns;
         List<Pawn> bluePawns;
         Dictionary<Button, Pawn> occupiedButtons = new Dictionary<Button, Pawn>();
+        Pawn ActivePawn { get; set; }
 
         CurrentTurn currentTurn = 0;
 
@@ -126,6 +127,7 @@ namespace OnitamaEngine
             if ((bool)selPieceCheck.IsChecked)
             {
                 Button btn = (Button)sender;
+                ActivePawn = occupiedButtons[btn];
                 string coordName = btn.Name.Substring(1);
                 coordName = coordName[0] + "," + coordName[1];
 
@@ -144,13 +146,25 @@ namespace OnitamaEngine
         {
             if ((bool)selCardCheck.IsChecked)
             {
+                // TODO: validate so that only the correct players cards can be selected
+
                 // Update the status message to pick a target destination
                 StatusPanel.Text = GetCurrentPlayer() + ": pick a target destination";
                 selDestinationCheck.IsChecked = true;
 
                 // TODO: Highlight possible destinations
-                    // Should be able to get the card from the send, which can then use the selected piece (which I probably 
-                    // need to persist from the previous action) to figure out possible coords for the piece to move
+                Point playerLoc = ActivePawn.Location;
+                Card card = (Card)((ListBox)sender).Items[0];
+                foreach (Point moveLoc in card.Moves)
+                {
+                    Point possibleLoc = new Point(playerLoc.X + moveLoc.Y, playerLoc.Y + moveLoc.X);
+                    Console.WriteLine(playerLoc);
+                    Console.WriteLine(moveLoc);
+                    Console.WriteLine(possibleLoc);
+                }
+                
+                // Should be able to get the card from the send, which can then use the selected piece (which I probably 
+                // need to persist from the previous action) to figure out possible coords for the piece to move
 
                 // TODO: Handle changing your mind, if you pick a different card then you need to clear all previous highlights
             }
