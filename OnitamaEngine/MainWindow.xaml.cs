@@ -26,22 +26,22 @@ namespace OnitamaEngine
         // TODO: Replace with card objects
         Card[] cards =
         {
-            new Card("Tiger", new List<Point> {new Point(0,2), new Point(0,-1)}, Card.Color.BLUE),
-            new Card("Crab", new List<Point> {new Point(-2,0), new Point(0,1), new Point (2,0)}, Card.Color.BLUE),
-            new Card("Monkey", new List<Point> {new Point(-1,1),new Point(-1,-1),new Point(1,1),new Point(1,-1)}, Card.Color.BLUE),
-            new Card("Crane", new List<Point> {new Point(-1,-1),new Point(0,1),new Point(1,-1)}, Card.Color.BLUE),
-            new Card("Dragon", new List<Point> {new Point(-2,1),new Point(-1,-1),new Point(2,1),new Point(1,-1)}, Card.Color.RED),
-            new Card("Elephant", new List<Point> {new Point(-1,1),new Point(-1,0),new Point(1,1),new Point(1,0)}, Card.Color.RED),
-            new Card("Mantis", new List<Point> {new Point(-1,1),new Point(0,-1),new Point(1,1)}, Card.Color.RED),
-            new Card("Boar", new List<Point> {new Point(-1,0),new Point(0,1),new Point(1,0)}, Card.Color.RED),
-            new Card("Frog", new List<Point> {new Point(-2,0),new Point(-1,1),new Point(1,-1)}, Card.Color.BLUE),
-            new Card("Goose", new List<Point> {new Point(-1,1),new Point(-1,0),new Point(1,0),new Point(1,-1)}, Card.Color.BLUE),
-            new Card("Horse", new List<Point> {new Point(-1,0),new Point(0,1),new Point(0,-1)}, Card.Color.BLUE),
-            new Card("Eel", new List<Point> {new Point(-1,1),new Point(-1,-1),new Point(1,0)}, Card.Color.BLUE),
-            new Card("Rabbit", new List<Point> {new Point(-1,-1),new Point(1,1),new Point(2,0)}, Card.Color.RED),
-            new Card("Rooster", new List<Point> {new Point(-1,-1),new Point(-1,0),new Point(1,1),new Point(1,0)}, Card.Color.RED),
-            new Card("Ox", new List<Point> {new Point(0,1),new Point(0,-1),new Point(1,0)}, Card.Color.RED),
-            new Card("Cobra", new List<Point> {new Point(-1,0),new Point(1,1),new Point(1,-1)}, Card.Color.RED),
+            new Card("Tiger", new List<Point> {new Point(0,2), new Point(0,-1)}, PlayerColor.BLUE),
+            new Card("Crab", new List<Point> {new Point(-2,0), new Point(0,1), new Point (2,0)}, PlayerColor.BLUE),
+            new Card("Monkey", new List<Point> {new Point(-1,1),new Point(-1,-1),new Point(1,1),new Point(1,-1)}, PlayerColor.BLUE),
+            new Card("Crane", new List<Point> {new Point(-1,-1),new Point(0,1),new Point(1,-1)}, PlayerColor.BLUE),
+            new Card("Dragon", new List<Point> {new Point(-2,1),new Point(-1,-1),new Point(2,1),new Point(1,-1)}, PlayerColor.RED),
+            new Card("Elephant", new List<Point> {new Point(-1,1),new Point(-1,0),new Point(1,1),new Point(1,0)}, PlayerColor.RED),
+            new Card("Mantis", new List<Point> {new Point(-1,1),new Point(0,-1),new Point(1,1)}, PlayerColor.RED),
+            new Card("Boar", new List<Point> {new Point(-1,0),new Point(0,1),new Point(1,0)}, PlayerColor.RED),
+            new Card("Frog", new List<Point> {new Point(-2,0),new Point(-1,1),new Point(1,-1)}, PlayerColor.BLUE),
+            new Card("Goose", new List<Point> {new Point(-1,1),new Point(-1,0),new Point(1,0),new Point(1,-1)}, PlayerColor.BLUE),
+            new Card("Horse", new List<Point> {new Point(-1,0),new Point(0,1),new Point(0,-1)}, PlayerColor.BLUE),
+            new Card("Eel", new List<Point> {new Point(-1,1),new Point(-1,-1),new Point(1,0)}, PlayerColor.BLUE),
+            new Card("Rabbit", new List<Point> {new Point(-1,-1),new Point(1,1),new Point(2,0)}, PlayerColor.RED),
+            new Card("Rooster", new List<Point> {new Point(-1,-1),new Point(-1,0),new Point(1,1),new Point(1,0)}, PlayerColor.RED),
+            new Card("Ox", new List<Point> {new Point(0,1),new Point(0,-1),new Point(1,0)}, PlayerColor.RED),
+            new Card("Cobra", new List<Point> {new Point(-1,0),new Point(1,1),new Point(1,-1)}, PlayerColor.RED),
         };
 
         // Track the stage we are.  This is terrible, but quick and easy.
@@ -63,11 +63,11 @@ namespace OnitamaEngine
 
         public void TestGame()
         {
-            Card tiger = new Card("Tiger", new List<Point> { new Point ( 0, 2 ), new Point ( 0, -1 ) }, Card.Color.BLUE);
-            Card crab = new Card("Crab", new List<Point> { new Point ( -2, 0 ), new Point ( 0, 1 ), new Point ( 2, 0 ) }, Card.Color.BLUE);
-            Card monkey = new Card("Monkey", new List<Point> { new Point ( -1, 1 ), new Point ( -1, -1 ), new Point ( 1, 1 ), new Point ( 1, -1 ) }, Card.Color.BLUE);
-            Card crane = new Card("Crane", new List<Point> { new Point ( -1, -1 ), new Point ( 0, 1 ), new Point ( 1, -1 ) }, Card.Color.BLUE);
-            Card dragon = new Card("Dragon", new List<Point> { new Point ( -2, 1 ), new Point ( -1, -1 ), new Point ( 2, 1 ), new Point ( 1, -1 ) }, Card.Color.RED);
+            Card tiger = new Card("Tiger", new List<Point> { new Point ( 0, 2 ), new Point ( 0, -1 ) }, PlayerColor.BLUE);
+            Card crab = new Card("Crab", new List<Point> { new Point ( -2, 0 ), new Point ( 0, 1 ), new Point ( 2, 0 ) }, PlayerColor.BLUE);
+            Card monkey = new Card("Monkey", new List<Point> { new Point ( -1, 1 ), new Point ( -1, -1 ), new Point ( 1, 1 ), new Point ( 1, -1 ) }, PlayerColor.BLUE);
+            Card crane = new Card("Crane", new List<Point> { new Point ( -1, -1 ), new Point ( 0, 1 ), new Point ( 1, -1 ) }, PlayerColor.BLUE);
+            Card dragon = new Card("Dragon", new List<Point> { new Point ( -2, 1 ), new Point ( -1, -1 ), new Point ( 2, 1 ), new Point ( 1, -1 ) }, PlayerColor.RED);
 
             BoardWindow board = new BoardWindow(new List<Card> { tiger, crab }, new List<Card> { monkey, crane }, dragon);
             board.Show();

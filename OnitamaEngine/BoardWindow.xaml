@@ -12,31 +12,31 @@
         <RadioButton x:Name="selCardCheck" Content="Select Card" HorizontalAlignment="Left" Margin="36,290,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <RadioButton x:Name="selDestinationCheck" Content="Select Destination" HorizontalAlignment="Left" Margin="36,310,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <Grid x:Name="BoardGrid" HorizontalAlignment="Left" Height="250" Margin="208,142,0,0" VerticalAlignment="Top" Width="250">
-            <Button x:Name="b51" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Click="HandleButtonClick"/>
+            <Button x:Name="b15" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Click="HandleButtonClick"/>
             <Button x:Name="b55" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,0,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b54" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,0,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b53" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,0,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b52" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,0,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b41" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,50,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b45" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,50,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b45" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,0,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b35" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,0,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b25" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,0,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b14" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,50,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b54" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,50,0,0" Click="HandleButtonClick"/>
             <Button x:Name="b44" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,50,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b42" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,50,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b43" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,50,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b31" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,100,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b35" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,100,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b34" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,100,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b32" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,100,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b24" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,50,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b34" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,50,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b13" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,100,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b53" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,100,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b43" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,100,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b23" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,100,0,0" Click="HandleButtonClick"/>
             <Button x:Name="b33" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,100,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b21" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,150,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b25" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,150,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b24" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,150,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b12" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,150,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b52" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,150,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b42" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,150,0,0" Click="HandleButtonClick"/>
             <Button x:Name="b22" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,150,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b23" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,150,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b11" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,200,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b15" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,200,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b14" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,200,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b12" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,200,0,0" Click="HandleButtonClick"/>
-            <Button x:Name="b13" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,200,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b32" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,150,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b11" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="0,200,0,0" Click="HandleButtonClick" Background="#FFDDDDDD"/>
+            <Button x:Name="b51" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="200,200,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b41" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="150,200,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b21" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="50,200,0,0" Click="HandleButtonClick"/>
+            <Button x:Name="b31" Content="" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="100,200,0,0" Click="HandleButtonClick"/>
         </Grid>
         <Label Content="Blue Cards" HorizontalAlignment="Left" Margin="298,39,0,0" VerticalAlignment="Top" Foreground="Blue" FontWeight="Bold"/>
         <Label Content="Red Cards" HorizontalAlignment="Left" Margin="298,485,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold"/>

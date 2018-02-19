@@ -15,7 +15,7 @@ namespace OnitamaEngine
         /// A list of int[2] - index 0 is x-axis, index 1 is y-axis, and origin is the player location
         /// </summary>
         public List<Point> Moves { get; }
-        public Color StartingColor { get; }
+        public PlayerColor StartingColor { get; }
 
         public enum Color
         {
@@ -23,7 +23,7 @@ namespace OnitamaEngine
             RED = 1
         }
 
-        public Card(string name, List<Point> moves, Color startingColor)
+        public Card(string name, List<Point> moves, PlayerColor startingColor)
         {
             this.Name = name;
             this.Moves = moves;

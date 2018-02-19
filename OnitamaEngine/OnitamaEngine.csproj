@@ -75,6 +75,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pawn.cs" />
+    <Compile Include="PlayerColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
