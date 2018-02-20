@@ -46,6 +46,7 @@
         <ListBox x:Name="BlueCard1" HorizontalAlignment="Left" Height="23" Margin="208,83,0,0" VerticalAlignment="Top" Width="120" GotFocus="CardSelected"/>
         <ListBox x:Name="BlueCard2" HorizontalAlignment="Left" Height="23" Margin="338,83,0,0" VerticalAlignment="Top" Width="120" GotFocus="CardSelected"/>
         <ListBox x:Name="PassCard" HorizontalAlignment="Left" Height="23" Margin="480,231,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Calculate Move" HorizontalAlignment="Left" Margin="36,410,0,0" VerticalAlignment="Top" Width="114" Height="34" Click="Button_Click"/>
 
     </Grid>
 </Window>

@@ -23,6 +23,9 @@ namespace OnitamaEngine
         List<Pawn> redPawns, bluePawns;
         List<Button> highLightedButtons;
 
+        // How deep does the rabbit hole go?
+        int depth = 0;
+
         /// <summary>
         /// A mapping that details which button has an occupying pawn.
         /// 
@@ -97,23 +100,18 @@ namespace OnitamaEngine
                 Pawn pawn = null;
                 if (i == 3)
                 {
-                    // Master pawn
                     pawn = new Pawn(true, button, PlayerColor.RED);
                     redPawns.Add(pawn);
-                    // button.Content = "M";
                 }
                 else
                 {
                     pawn = new Pawn(button, PlayerColor.RED);
                     redPawns.Add(pawn);
-                    // button.Content = "o";
                 }
-
-                // Update button dictionary with occupying pawn
                 UpdatePawnLocation(button, pawn);
-                // occupiedBtnDict.Add(button, pawn);
             }
 
+            // Create blue pawns
             bluePawns = new List<Pawn>();
             for (int i = 1; i < 6; i++)
             {
@@ -123,18 +121,13 @@ namespace OnitamaEngine
                 {
                     pawn = new Pawn(true, button, PlayerColor.BLUE);
                     bluePawns.Add(pawn);
-                    //button.Content = "M";
                 }
                 else
                 {
                     pawn = new Pawn(button, PlayerColor.BLUE);
                     bluePawns.Add(pawn);
-                   // button.Content = "o";
                 }
-
-                // Update button dictionary with occupying pawn
                 UpdatePawnLocation(button, pawn);
-                //occupiedBtnDict.Add(button, pawn);
             }
         }
 
@@ -205,51 +198,26 @@ namespace OnitamaEngine
             if ((bool)selCardCheck.IsChecked)
             {
                 // TODO: validate so that only the correct players cards can be selected
+                ActiveCard = (Card)((ListBox)sender).Items[0];
+                if (currentTurn == PlayerColor.RED)
+                {
+                    if (ActiveCard != RedCard1.Items[0] && ActiveCard != RedCard2.Items[0])
+                        return;
+                }
+                else
+                {
+                    if (ActiveCard != BlueCard1.Items[0] && ActiveCard != BlueCard2.Items[0])
+                        return;
+                }
 
                 // Update the status message to pick a target destination
                 StatusPanel.Text = GetCurrentPlayerText() + ": pick a target destination";
                 selDestinationCheck.IsChecked = true;
 
-                // TODO: Highlight possible destinations
-                Point activePawnLoc = ConvertButtonToPoint(ActivePawn.Location);
-                ActiveCard = (Card)((ListBox)sender).Items[0];
-
-                List<Point> possibleMoves = new List<Point>();
-                foreach (Point moveLoc in ActiveCard.Moves)
-                {
-                    // Invert move locations for Blue player
-                    int mod = currentTurn == PlayerColor.RED ? 1 : -1;
-
-                    int X = (int)(activePawnLoc.X + (mod * moveLoc.X));
-                    int Y = (int)(activePawnLoc.Y + (mod * moveLoc.Y));
-
-                    // Ignore moves that go outside the board
-                    if (X <= 0 || X > 5 || Y <= 0 || Y > 5)
-                        continue;
-
-                    possibleMoves.Add(new Point(X, Y));
-                }
-
-                highLightedButtons = new List<Button>();
-                foreach (Point point in possibleMoves)
-                {
-                    Button button = pointButtonDict[point];
-                    if (occupiedBtnDict.ContainsKey(button))
-                    {
-                        Pawn targetPawn = occupiedBtnDict[button];
-                        if (targetPawn.Team == currentTurn)
-                        {
-                            // Can't target your own team
-                            continue;
-                        }
-                    }
-                    highLightedButtons.Add(button);
-                }
-
+                // Highlight legal moves for the active pawn/card combo
+                highLightedButtons = GetPossibleMoves(ActivePawn, ActiveCard);
                 foreach (Button button in highLightedButtons)
-                {
                     button.Background = Brushes.LightGreen;
-                }
 
                 // TODO: Handle changing your mind, if you pick a different card then you need to clear all previous highlights
             }
@@ -349,6 +317,50 @@ namespace OnitamaEngine
             return victoryAchieved;
         }
 
+        /// <summary>
+        /// For the provided pawn and card, return all legal destination buttons that can be moved to
+        /// </summary>
+        /// <param name="pawn">The pawn that is being moved</param>
+        /// <param name="card">That card that is providing the possible moves</param>
+        /// <param name="team">The owner of the pawn</param>
+        /// <returns></returns>
+        private List<Button> GetPossibleMoves(Pawn pawn, Card card)
+        {
+            List<Point> possibleMoves = new List<Point>();
+            foreach (Point moveLoc in card.Moves)
+            {
+                // Invert move locations for Blue player
+                int mod = pawn.Team == PlayerColor.RED ? 1 : -1;
+
+                Point activePawnLoc = ConvertButtonToPoint(pawn.Location);
+                int X = (int)(activePawnLoc.X + (mod * moveLoc.X));
+                int Y = (int)(activePawnLoc.Y + (mod * moveLoc.Y));
+
+                // Ignore moves that go outside the board
+                if (X <= 0 || X > 5 || Y <= 0 || Y > 5)
+                    continue;
+
+                possibleMoves.Add(new Point(X, Y));
+            }
+
+            List<Button> possibleTargetButtons = new List<Button>();
+            foreach (Point point in possibleMoves)
+            {
+                Button button = pointButtonDict[point];
+                if (occupiedBtnDict.ContainsKey(button))
+                {
+                    Pawn targetPawn = occupiedBtnDict[button];
+                    if (targetPawn.Team == pawn.Team)
+                    {
+                        // Can't target your own team
+                        continue;
+                    }
+                }
+                possibleTargetButtons.Add(button);
+            }
+            return possibleTargetButtons;
+        }
+
         private string GetCurrentPlayerText()
         {
             return currentTurn == PlayerColor.RED ? "RED" : "BLUE";
@@ -357,6 +369,186 @@ namespace OnitamaEngine
         private Point ConvertButtonToPoint(Button button)
         {
             return new Point(char.GetNumericValue(button.Name[1]), char.GetNumericValue(button.Name[2]));
+        }
+
+        /*************************************** ENGINE METHODS ***************************************/
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            Dictionary<Button, Pawn> dictCopy = new Dictionary<Button, Pawn>();
+            foreach (KeyValuePair<Button, Pawn> entry in occupiedBtnDict)
+            {
+                dictCopy.Add(entry.Key, entry.Value);
+            }
+            */
+            List<Pawn> redPawnCopy = new List<Pawn>();
+            foreach (Pawn pawn in redPawns)
+            {
+                redPawnCopy.Add(pawn);
+            }
+            List<Pawn> bluePawnCopy = new List<Pawn>();
+            foreach (Pawn pawn in bluePawns)
+            {
+                bluePawnCopy.Add(pawn);
+            }
+
+            GetBestMove(currentTurn);
+
+            depth = 0;
+
+            foreach (Pawn pawn in redPawnCopy)
+                UpdatePawnLocation(pawn.Location, pawn);
+
+            foreach (Pawn pawn in bluePawnCopy)
+                UpdatePawnLocation(pawn.Location, pawn);
+
+            redPawns = redPawnCopy;
+            bluePawns = bluePawnCopy;
+
+        }
+
+        int MAX_DEPTH = 1;
+
+        private int GetBestMove(PlayerColor team)
+        {
+            //Console.WriteLine("In GetBestMove");
+
+
+            // TODO: randomize start order in pawn Arrays to make it so the first moves are not predictable 
+            List<Pawn> pawnList = null;
+            List<Card> cards = new List<Card>();
+            if (team == PlayerColor.RED)
+            {
+                pawnList = redPawns;
+                cards.Add((Card)RedCard1.Items[0]);
+                cards.Add((Card)RedCard2.Items[0]);
+            }
+            else
+            {
+                pawnList = bluePawns;
+                cards.Add((Card)BlueCard1.Items[0]);
+                cards.Add((Card)BlueCard2.Items[0]);
+            }
+
+            // int=moveValue, button1=origLocation, card=Card, button2=targetLocation
+            Tuple<int, Button, Card, Button> bestMove = new Tuple<int, Button, Card, Button>(-9999, null, null, null);
+            foreach (Pawn pawn in pawnList)
+            {
+                foreach (Card card in cards) {
+                    // Console.WriteLine("Calc for pawn on " + pawn.Location.Name + " using " + card);
+                    // Try with first card
+                    List<Button> moves = GetPossibleMoves(pawn, card);
+                    foreach (Button move in moves)
+                    {
+                        int moveValue = CalculateMoveValue(team, move);
+
+                        // Avoid infinite recursion
+                        if (!(depth >= MAX_DEPTH))
+                        {
+                            depth++;
+
+                            // Store original location
+                            Button oldLocation = pawn.Location;
+
+                            // Temporarily move pawn so it can be used in further calculations
+                            UpdatePawnLocation(move, pawn);
+
+                            // Check the next players best move
+                            int opponentMoveValue = GetBestMove(team == PlayerColor.RED ? PlayerColor.BLUE : PlayerColor.RED);
+                            //Console.WriteLine("Op val: " + opponentMoveValue);
+                            moveValue -= opponentMoveValue;
+
+                            // Reset to old location
+                            UpdatePawnLocation(oldLocation, pawn);
+                        }
+
+                        // TODO: 
+                        // * temporarily make the move without updating the UI
+                        // * for each pawn in blue
+                        //   * get all possible moves
+                        //   * calculate the value of each move and return the hights value
+                        //   * subtract blues best move value from this moves value
+                        //   * store THAT number in bestMove
+
+                        // get all values for other player and check the difference
+
+                        // roll back the move
+
+                        if (moveValue >= bestMove.Item1)
+                        {
+                            bestMove = new Tuple<int, Button, Card, Button>(moveValue, pawn.Location, card, move);
+                        }
+                        // Console.WriteLine(" - Move: " + move.Name);
+                        // Console.WriteLine(" - Value: " + moveValue);
+                    }
+                }
+            }
+            
+
+            if (depth == 0)
+                StatusPanel.Text = "Best Move: (" + bestMove.Item1 + ") Move from " + bestMove.Item2.Name + " to " + bestMove.Item4.Name + " using " + bestMove.Item3.Name;
+            depth--;
+            return bestMove.Item1;
+
+            // Calculate all available moves for all available pawns, and all available opponent moves for each move
+
+            // Pick the move with the highest combined point value of playerMove - opponentsBestMove
+        }
+
+        private int CalculateMoveValue(PlayerColor team, Button moveLocation)
+        {
+            int moveValue = 0;
+
+            // First get value based on location
+            int X = (int)char.GetNumericValue(moveLocation.Name[1]);
+            switch(X)
+            {
+                case 1:
+                case 5:
+                    moveValue += 5;
+                    break;
+                case 2:
+                case 4:
+                    moveValue += 15;
+                    break;
+                case 3:
+                    moveValue += 25;
+                    break;
+            }
+
+            // invert Y values for bluePlayer
+            int[] yVals = team == PlayerColor.RED ? new int[]{ 0, 5, 10, 25, 15 } : new int[]{ 15, 25, 10, 5, 0 };
+            int Y = (int)char.GetNumericValue(moveLocation.Name[2]);
+            switch(Y)
+            {
+                case 1:
+                    moveValue += yVals[0];
+                    break;
+                case 2:
+                    moveValue += yVals[1];
+                    break;
+                case 3:
+                    moveValue += yVals[2];
+                    break;
+                case 4:
+                    moveValue += yVals[3];
+                    break;
+                case 5:
+                    moveValue += yVals[4];
+                    break;
+            }
+
+            // Next get value based on captured pawns
+            if (occupiedBtnDict.ContainsKey(moveLocation))
+            {
+                Pawn targetPawn = occupiedBtnDict[moveLocation];
+                if (targetPawn.IsMaster)
+                    moveValue += 1000;
+                else
+                    moveValue += 200;
+            }
+
+            return moveValue;
         }
     }
 }
